@@ -1,0 +1,203 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cscie57.assignment2_1</groupId>
+    <artifactId>assignment2_1</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>assignment2_1</name>
+
+    <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <spring.version>5.1.8.RELEASE</spring.version>
+      <slf4j.log4j.version>2.0.0-alpha0</slf4j.log4j.version>
+      <mysql.client.version>8.0.16</mysql.client.version>
+      <commons.dbcp2.version>2.6.0</commons.dbcp2.version>
+      <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
+    </properties>
+
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jdbc</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>${slf4j.log4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.client.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-dbcp2</artifactId>
+        <version>${commons.dbcp2.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.annotation</groupId>
+        <artifactId>javax.annotation-api</artifactId>
+        <version>${javax.annotation-api.version}</version>
+      </dependency>
+
+    </dependencies>
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+          <configuration>
+            <release>11</release>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>3.1.0</version>
+          <executions>
+
+            <execution>
+              <phase>package</phase>
+              <id>assignment2_1-find-all-books</id>
+              <goals>
+                <goal>shade</goal>
+              </goals>
+              <configuration>
+                <transformers>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.handlers</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.schemas</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                    <mainClass>cscie57.assignment2_1.app.FindAllBooksJdbcApp</mainClass>
+                  </transformer>
+                </transformers>
+                <finalName>assignment2_1-find-all-books</finalName>
+              </configuration>
+            </execution>
+            
+            <execution>
+              <phase>package</phase>
+              <id>assignment2_1-find-all-categories</id>
+              <goals>
+                <goal>shade</goal>
+              </goals>
+              <configuration>
+                <transformers>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.handlers</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.schemas</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                    <mainClass>cscie57.assignment2_1.app.FindAllCategoriesJdbcApp</mainClass>
+                  </transformer>
+                </transformers>
+                <finalName>assignment2_1-find-all-categories</finalName>
+              </configuration>
+            </execution>
+            
+            <execution>
+              <phase>package</phase>
+              <id>assignment2_1-find-books-by-category-name</id>
+              <goals>
+                <goal>shade</goal>
+              </goals>
+              <configuration>
+                <transformers>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.handlers</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.schemas</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                    <mainClass>cscie57.assignment2_1.app.FindBooksByCategoryName</mainClass>
+                  </transformer>
+                </transformers>
+                <finalName>assignment2_1-find-books-by-category-name</finalName>
+              </configuration>
+            </execution>
+            
+            <execution>
+              <phase>package</phase>
+              <id>assignment2_1-insert-new-book</id>
+              <goals>
+                <goal>shade</goal>
+              </goals>
+              <configuration>
+                <transformers>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.handlers</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.schemas</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                    <mainClass>cscie57.assignment2_1.app.InsertBookJdbc</mainClass>
+                  </transformer>
+                </transformers>
+                <finalName>assignment2_1-insert-new-book</finalName>
+              </configuration>
+            </execution>
+            
+            <execution>
+              <phase>package</phase>
+              <id>assignment2_1-update-book-price</id>
+              <goals>
+                <goal>shade</goal>
+              </goals>
+              <configuration>
+                <transformers>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.handlers</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.schemas</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                    <mainClass>cscie57.assignment2_1.app.UpdateBookPriceJdbc</mainClass>
+                  </transformer>
+                </transformers>
+                <finalName>assignment2_1-update-book-price</finalName>
+              </configuration>
+            </execution>
+            
+            <execution>
+              <phase>package</phase>
+              <id>assignment2_1-delete-book</id>
+              <goals>
+                <goal>shade</goal>
+              </goals>
+              <configuration>
+                <transformers>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.handlers</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.schemas</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                    <mainClass>cscie57.assignment2_1.app.DeleteBookJdbc</mainClass>
+                  </transformer>
+                </transformers>
+                <finalName>assignment2_1-delete-book</finalName>
+              </configuration>
+            </execution>
+
+          </executions>
+        </plugin>
+      </plugins>
+    </build>
+  </project>
