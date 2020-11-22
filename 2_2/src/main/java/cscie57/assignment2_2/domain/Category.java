@@ -9,11 +9,19 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "category")
+@NamedQueries({
+        @NamedQuery(name=Category.FIND_CATEGORY_BY_ID,
+                query="select distinct c from Category c " +
+                        "where c.id = :id ")
+})
+
 public class Category extends AbstractDomain {
+    public static final String FIND_CATEGORY_BY_ID = "Category.findCategoryById";
+    
     @Column(name = "NAME")
     private String name;
     
-    @OneToMany(mappedBy = "category", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "category", cascade=CascadeType.ALL, orphanRemoval=true)
     private Set<Book> books = new HashSet<>();
 
     public void setName(String name) {

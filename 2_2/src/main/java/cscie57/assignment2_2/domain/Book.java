@@ -31,7 +31,6 @@ public class Book extends AbstractDomain {
     public static final String FIND_BOOK_BY_ID_W_AUTHOR_CATEGORIES = "Book.findBookByIdWithAuthorCategories";
     public static final String FIND_BOOK_CATEGORIES_BY_AUTHOR_ID = "Book.findBookByAuthorId";
     
-    
     @Column(name = "ISBN")
     private String isbn;
     
@@ -54,7 +53,7 @@ public class Book extends AbstractDomain {
     public void setCategory(Category category) {
         this.category = category;
     }
-
+    
     public Category getCategory() {
         return this.category;
     }
@@ -106,7 +105,7 @@ public class Book extends AbstractDomain {
         Book book = (Book) o;
         if (title != null ? !title.equals(book.title) : book.title != null)
             return false;
-        return releaseDate != null ? releaseDate.equals(album.releaseDate) : album.releaseDate == null;
+        return isbn != null ? isbn.equals(book.isbn) : book.isbn == null;
     }
     
     @Override

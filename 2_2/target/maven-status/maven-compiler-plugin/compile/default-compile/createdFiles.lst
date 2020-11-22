@@ -4,7 +4,6 @@ cscie57/assignment2_2/dao/BookDaoImpl.class
 cscie57/assignment2_2/dao/CategoryDao.class
 cscie57/assignment2_2/domain/Author.class
 cscie57/assignment2_2/app/CreateBookWAuthor.class
-cscie57/assignment2_2/dao/AuthorDao.class
 cscie57/assignment2_2/domain/AbstractDomain.class
 cscie57/assignment2_2/app/FindBookByAuthorIdWCategories.class
 cscie57/assignment2_2/dao/CategoryDaoImpl.class
@@ -12,6 +11,5 @@ cscie57/assignment2_2/dao/BookDao.class
 cscie57/assignment2_2/app/FindBookByIdWAuthorsCategories.class
 cscie57/assignment2_2/utils/Two2Utils.class
 cscie57/assignment2_2/domain/Book.class
-cscie57/assignment2_2/dao/AuthorDaoImpl.class
 cscie57/assignment2_2/app/FindAllBooksWAuthorsCategories.class
 cscie57/assignment2_2/domain/Category.class

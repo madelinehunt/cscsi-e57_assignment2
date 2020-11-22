@@ -5,7 +5,6 @@
 /Users/nathanielhunt/Dropbox/HarvEx/CSCI E-57/assignments/assignment 2/assignment2/2_2/src/main/java/cscie57/assignment2_2/app/FindAllBooksWAuthorsCategories.java
 /Users/nathanielhunt/Dropbox/HarvEx/CSCI E-57/assignments/assignment 2/assignment2/2_2/src/main/java/cscie57/assignment2_2/app/FindBookByIdWAuthorsCategories.java
 /Users/nathanielhunt/Dropbox/HarvEx/CSCI E-57/assignments/assignment 2/assignment2/2_2/src/main/java/cscie57/assignment2_2/dao/CategoryDaoImpl.java
-/Users/nathanielhunt/Dropbox/HarvEx/CSCI E-57/assignments/assignment 2/assignment2/2_2/src/main/java/cscie57/assignment2_2/dao/AuthorDao.java
 /Users/nathanielhunt/Dropbox/HarvEx/CSCI E-57/assignments/assignment 2/assignment2/2_2/src/main/java/cscie57/assignment2_2/domain/AbstractDomain.java
 /Users/nathanielhunt/Dropbox/HarvEx/CSCI E-57/assignments/assignment 2/assignment2/2_2/src/main/java/cscie57/assignment2_2/app/CreateBookWAuthor.java
 /Users/nathanielhunt/Dropbox/HarvEx/CSCI E-57/assignments/assignment 2/assignment2/2_2/src/main/java/cscie57/assignment2_2/domain/Book.java
@@ -14,4 +13,3 @@
 /Users/nathanielhunt/Dropbox/HarvEx/CSCI E-57/assignments/assignment 2/assignment2/2_2/src/main/java/cscie57/assignment2_2/dao/CategoryDao.java
 /Users/nathanielhunt/Dropbox/HarvEx/CSCI E-57/assignments/assignment 2/assignment2/2_2/src/main/java/cscie57/assignment2_2/app/FindBookByAuthorIdWCategories.java
 /Users/nathanielhunt/Dropbox/HarvEx/CSCI E-57/assignments/assignment 2/assignment2/2_2/src/main/java/cscie57/assignment2_2/utils/Two2Utils.java
-/Users/nathanielhunt/Dropbox/HarvEx/CSCI E-57/assignments/assignment 2/assignment2/2_2/src/main/java/cscie57/assignment2_2/dao/AuthorDaoImpl.java

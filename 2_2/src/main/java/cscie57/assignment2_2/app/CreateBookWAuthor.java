@@ -19,8 +19,8 @@ public class CreateBookWAuthor {
         GenericApplicationContext ctx = 
                 new AnnotationConfigApplicationContext(AppConfig.class);
         BookDao bookDao = ctx.getBean(BookDao.class);
-        AuthorDao authorDao = ctx.getBean(AuthorDao.class);
         CategoryDao catDao = ctx.getBean(CategoryDao.class);
+        AuthorDao authorDao = ctx.getBean(AuthorDao.class);
         
         Author author = new Author();
         author.setFirstName("Eugene");
@@ -33,12 +33,11 @@ public class CreateBookWAuthor {
         book.setPrice(7.98);
         book.addAuthor(author);
         
-        Category category = new Category();
-        category.setName("Plays");
-        category.setId(5l);
+        Category category = catDao.findById(2l);
         category.addBook(book);
         
-        bookDao.save(book);
+        // bookDao.save(book);
+        catDao.save(category);
         logger.info("Saving book done.\nNew set of books:");
         List<Book> books = bookDao.findAllWAuthorsCategories();
         Two2Utils.listBooksWAuthorsCategories(books);

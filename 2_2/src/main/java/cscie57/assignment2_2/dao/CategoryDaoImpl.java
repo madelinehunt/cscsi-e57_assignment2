@@ -1,7 +1,7 @@
 package cscie57.assignment2_2.dao;
 
 import cscie57.assignment2_2.dao.CategoryDao;
-import cscie57.assignment2_2.domain.Book;
+import cscie57.assignment2_2.domain.Category;
 import cscie57.assignment2_2.domain.Category;
 
 import java.util.List;
@@ -26,6 +26,7 @@ public class CategoryDaoImpl implements CategoryDao {
         return (Category) sessionFactory.getCurrentSession().
                 getNamedQuery("Category.findCategoryById").
                 setParameter("id", id).uniqueResult();
+        // return (Category) sessionFactory.getCurrentSession().createQuery("select distinct c from Category c where c.id = " + String.valueOf(id)).uniqueResult();
     }
 
     @Override
@@ -36,6 +37,12 @@ public class CategoryDaoImpl implements CategoryDao {
 
     public SessionFactory getSessionFactory() {
         return sessionFactory;
+    }
+    
+    public Category save(Category category) {
+        sessionFactory.getCurrentSession().saveOrUpdate(category);
+        logger.info("Category saved with id: " + category.getId());
+        return category;
     }
     
     @Resource(name = "sessionFactory")
