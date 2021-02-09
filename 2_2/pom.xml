@@ -206,6 +206,28 @@
               </configuration>
             </execution>
             
+            <execution>
+              <phase>package</phase>
+              <id>assignment2_2-delete-book-author</id>
+              <goals>
+                <goal>shade</goal>
+              </goals>
+              <configuration>
+                <transformers>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.handlers</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                    <resource>META-INF/spring.schemas</resource>
+                  </transformer>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                    <mainClass>cscie57.assignment2_2.app.DeleteBookWAuthor</mainClass>
+                  </transformer>
+                </transformers>
+                <finalName>assignment2_2-delete-book-author</finalName>
+              </configuration>
+            </execution>
+            
           </executions>
         </plugin>
       </plugins>

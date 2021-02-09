@@ -36,7 +36,7 @@ public class CreateBookWAuthor {
         Category category = catDao.findById(2l);
         category.addBook(book);
         
-        // bookDao.save(book);
+        authorDao.save(author);
         catDao.save(category);
         logger.info("Saving book done.\nNew set of books:");
         List<Book> books = bookDao.findAllWAuthorsCategories();

@@ -25,6 +25,11 @@ import static javax.persistence.GenerationType.IDENTITY;
                         "left join fetch b.category c " +
                         "left join fetch b.authors a " +
                         "where a.id = :authorId")
+        ,@NamedQuery(name=Book.FIND_MULTIPLE_BOOKS_BY_AUTHOR,
+                query="select b from Book b " + 
+                        "where b.id in (:ids)"
+                    )
+                
 })
 @SqlResultSetMapping(
      name="bookResult",
@@ -35,6 +40,8 @@ public class Book implements Serializable {
     public static final String FIND_BOOK_WITH_AUTHOR_CATEGORIES = "Book.findBookWithAuthorCategories";
     public static final String FIND_BOOK_BY_ID_W_AUTHOR_CATEGORIES = "Book.findBookByIdWithAuthorCategories";
     public static final String FIND_BOOK_CATEGORIES_BY_AUTHOR_ID = "Book.findBookByAuthorId";
+    public static final String FIND_MULTIPLE_BOOKS_BY_AUTHOR = "Book.findMultipleBooksByAuthor";
+    
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "ID")
@@ -56,7 +63,8 @@ public class Book implements Serializable {
     @ManyToMany
     @JoinTable(name = "author_book",
             joinColumns = @JoinColumn(name = "BOOK_ID"),
-            inverseJoinColumns = @JoinColumn(name = "AUTHOR_ID"))
+            inverseJoinColumns = @JoinColumn(name = "AUTHOR_ID")
+            )
     private Set<Author> authors = new HashSet<>();
 
     public Long getId() {
